@@ -1,7 +1,8 @@
 FROM jenkins/jenkins:lts
 MAINTAINER Michael J. Stealey <michael.j.stealey@gmail.com>
 
-ARG docker_version=17.12.0~ce-0~debian
+ARG docker_version=5:19.03.4~3-0~debian-stretch
+ARG docker_compose_version=1.24.1
 
 USER root
 RUN apt-get update && apt-get -y install \
@@ -17,7 +18,9 @@ RUN apt-get update && apt-get -y install \
     $(lsb_release -cs) \
     stable" \
   && apt-get update && apt-get -y install \
-    docker-ce=${docker_version}
+    docker-ce=${docker_version} \
+  && curl -L "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose \
+  && chmod 755 /usr/bin/docker-compose
 
 ENV UID_JENKINS=1000
 ENV GID_JENKINS=1000
