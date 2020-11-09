@@ -33,7 +33,7 @@ RUN echo "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/so
    curl -fsSL "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && \
      chmod 755 /usr/bin/docker-compose && \
    apt-get -y --no-install-recommends install \
-     6${virtualbox_version} && \
+     virtualbox-${virtualbox_version} && \
    cd /tmp && \
    curl -fsSLJO "$(curl -fsL "https://www.virtualbox.org/wiki/Downloads" | grep -oP "https://.*?vbox-extpack" | sort -V | head -n 1)" && \
      VBoxManage extpack install --accept-license=${extpack_accept_key} --replace *.vbox-extpack && \
