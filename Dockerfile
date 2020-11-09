@@ -4,7 +4,7 @@ MAINTAINER Michael J. Stealey <michael.j.stealey@gmail.com>
 ARG docker_version=5:19.03.13~3-0~debian-stretch
 ARG docker_compose_version=1.27.4
 ARG virtualbox_version=6.1
-ARG extpack_accept_key=56be48f923303c8cababb0bb4c478284b688ed23f16d775d729b89a2e8e5f9eb
+ARG extpack_accept_key=33d7284dc4a0ece381196fda3cfe2ed0e1e8e7ed7f27b9a9ebc4ee22e24bd23c
 
 USER root
 RUN echo "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/stretch-backports.list && \
@@ -33,7 +33,7 @@ RUN echo "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/so
    curl -fsSL "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && \
      chmod 755 /usr/bin/docker-compose && \
    apt-get -y --no-install-recommends install \
-     virtualbox-${virtualbox_version} && \
+     6${virtualbox_version} && \
    cd /tmp && \
    curl -fsSLJO "$(curl -fsL "https://www.virtualbox.org/wiki/Downloads" | grep -oP "https://.*?vbox-extpack" | sort -V | head -n 1)" && \
      VBoxManage extpack install --accept-license=${extpack_accept_key} --replace *.vbox-extpack && \
