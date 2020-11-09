@@ -1,9 +1,9 @@
 FROM jenkins/jenkins:lts
 MAINTAINER Michael J. Stealey <michael.j.stealey@gmail.com>
 
-ARG docker_version=5:19.03.4~3-0~debian-stretch
-ARG docker_compose_version=1.24.1
-ARG virtualbox_version=6.0
+ARG docker_version=5:19.03.13~3-0~debian-stretch
+ARG docker_compose_version=1.27.4
+ARG virtualbox_version=6.1
 ARG extpack_accept_key=56be48f923303c8cababb0bb4c478284b688ed23f16d775d729b89a2e8e5f9eb
 
 USER root
